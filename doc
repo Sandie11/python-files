@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCB Bank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .body-container {
+            display: flex;
+            align-items: stretch;
+            height: 70vh;
+            padding: 20px;
+        }
+
+        .left-side {
+            flex: 7;
+            padding: 20px;
+            background-color: #003366;
+            color: white;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
+
+        .left-side h2 {
+            margin-top: 0;
+        }
+
+        .left-side p {
+            margin-bottom: 20px;
+        }
+
+        .left-side button {
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .right-side {
+            flex: 3;
+            padding: 20px;
+            background-color: white;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .switch-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .block-text {
+            background-color: #003366;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .sign-in-form,
+        .sign-up-form {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .sign-in-form label,
+        .sign-up-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .sign-in-form input,
+        .sign-up-form input {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        .sign-in-form button,
+        .sign-up-form button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .sign-in-form button:hover,
+        .sign-up-form button:hover {
+            background-color: #001f3f;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DCB Bank</h1>
+        <div class="header-links">
+            <div class="block-text">Home</div>
+            <div class="block-text">About Us</div>
+            <a href="#contact" class="block-text">Contact Us</a>
+        </div>
+    </header>
+    <div class="body-container">
+        <div class="left-side">
+            <h2>Your Trusted Financial Partner - DCB Bank</h2>
+            <p>Get an instant loan up to 1 lakh.</p>
+            <button class="km">Know More</button>
+        </div>
+        <div class="right-side">
+            <div class="switch-buttons">
+
+                <div class="block-text" id="signinBtn">Sign In</div>
+
+                <div class="block-text" id="signupBtn">Sign Up</div>
+
+            </div>
+
+            <form class="sign-in-form" id="signinForm">
+                <label for="signinUsername">Username or Email:</label>
+
+                <input type="text" id="signinUsername" name="signinUsername" required>
+                <label for="signinPassword">Password:</label>
+
+                <input type="password" id="signinPassword" name="signinPassword" required>
+                <button type="submit">Sign In</button>
+
+            </form>
+            <form class="sign-up-form" id="signupForm">
+
+                <label for="signupFirstName">First Name:</label>
+                <input type="text" id="signupFirstName" name="signupFirstName" required>
+
+                <label for="signupLastName">Last Name:</label>
+                <input type="text" id="signupLastName" name="signupLastName" required>
+
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="signupEmail" required>
+
+                <label for="signupContact">Contact No:</label>
+                <input type="tel" id="signupContact" name="signupContact" required>
+
+                <label for="signupAccount">Account Number:</label>
+                <input type="text" id="signupAccount" name="signupAccount" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <footer id="contact">
+        <p>For more details, call at <a href="tel:1234567890">123-456-7890</a></p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const signinBtn = document.getElementById("signinBtn");
+            const signupBtn = document.getElementById("signupBtn");
+            const signinForm = document.getElementById("signinForm");
+            const signupForm = document.getElementById("signupForm");
+
+            signinForm.style.display = "block";
+            signupForm.style.display = "none";
+
+            signinBtn.addEventListener("click", function() {
+                signinForm.style.display = "block";
+                signupForm.style.display = "none";
+            });
+
+            signupBtn.addEventListener("click", function() {
+                signinForm.style.display = "none";
+                signupForm.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
+----------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCB Bank - Home</title>
+    <style>
+      {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .body-container {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+        }
+
+        .loan-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .loan-form input {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        .loan-form button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .loan-form button:hover {
+            background-color: #001f3f;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DCB Bank</h1>
+        <div class="header-links">
+            <div class="block-text">Home</div>
+            <a href="#contact" class="block-text">Contact Us</a>
+            <a href="#loan-application" class="block-text">Loan Apply</a>
+            <a href="#loan-status" class="block-text">Loan Status</a>
+        </div>
+    </header>
+    <div class="body-container">
+        <section class="section">
+            <h2>Welcome to DCB Bank</h2>
+            <p>Your Trusted Financial Partner</p>
+        </section>
+        <section class="section">
+            <h2>Loan Application</h2>
+            <form class="loan-form" id="loanApplicationForm">
+
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" name="accountNumber" required>
+
+                <label for="creditScore">DCB Credit Score:</label>
+                <input type="number" id="creditScore" name="creditScore" required>
+
+                <button type="submit">Submit Application</button>
+            </form>
+        </section>
+    </div>
+    <footer id="contact">
+        <p>For more details, call at <a href="tel:1234567890">123-456-7890</a></p>
+    </footer>
+</body>
+</html>
