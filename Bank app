@@ -1,0 +1,187 @@
+#bank 
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show_details(self):
+        print("Personal Details:")
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+class BankAccount:
+    def __init__(self, account_num, init_bal):
+        self.account_num = account_num
+        self.balance = init_bal
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print("Your balance:", self.balance)
+        else:
+            print("Insufficient funds. Your balance:", self.balance)
+
+class Bank(Person):
+    def __init__(self, name, age, account_num, init_bal):
+        super().__init__(name, age)
+        self.account = BankAccount(account_num, init_bal)
+
+# Create an instance of Bank
+shivatej = Bank("Shivatej", 20, "12345", 1000)
+
+# Show personal details
+shivatej.show_details()
+
+# Deposit and withdraw from the bank account
+shivatej.account.deposit(500)
+shivatej.account.withdraw(1000)
+----------
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show_details(self):
+        print("Personal Details:")
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+    def update_details(self, new_name, new_age):
+        self.name = new_name
+        self.age = new_age
+
+class BankAccount:
+    def __init__(self, account_num, init_bal):
+        self.account_num = account_num
+        self.balance = init_bal
+        self.transactions = []
+
+    def deposit(self, amount):
+        self.balance += amount
+        self.transactions.append(f"Deposited ${amount}")
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            self.transactions.append(f"Withdrew ${amount}")
+        else:
+            print("Insufficient funds. Your balance:", self.balance)
+
+    def check_balance(self):
+        print("Your balance:", self.balance)
+
+    def transaction_history(self):
+        print("Transaction History:")
+        for transaction in self.transactions:
+            print(transaction)
+
+class Bank(Person):
+    def __init__(self, name, age, account_num, init_bal):
+        super().__init__(name, age)
+        self.account = BankAccount(account_num, init_bal)
+
+# Create an instance of Bank
+shivatej = Bank("Shivatej", 20, "12345", 1000)
+
+# Show personal details
+shivatej.show_details()
+
+# Deposit, withdraw, check balance, and display transaction history
+shivatej.account.deposit(500)
+shivatej.account.withdraw(1000)
+shivatej.account.check_balance()
+shivatej.account.transaction_history()
+
+# Update personal details
+shivatej.update_details("Shivatej Kulkarni", 21)
+shivatej.show_details()
+---------
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show_details(self):
+        print("Personal Details:")
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+    def update_details(self, new_name, new_age):
+        self.name = new_name
+        self.age = new_age
+
+class BankAccount:
+    def __init__(self, account_num, init_bal):
+        self.account_num = account_num
+        self.balance = init_bal
+        self.transactions = []
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            self.transactions.append(f"Deposited ${amount}")
+        else:
+            print("Invalid amount for deposit.")
+
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.balance:
+            self.balance -= amount
+            self.transactions.append(f"Withdrew ${amount}")
+        else:
+            print("Invalid amount for withdrawal. Insufficient funds.")
+
+    def check_balance(self):
+        print("Your balance:", self.balance)
+
+    def transaction_history(self):
+        print("Transaction History:")
+        for transaction in self.transactions:
+            print(transaction)
+
+class Bank(Person):
+    def __init__(self, name, age, account_num, init_bal):
+        super().__init__(name, age)
+        self.account = BankAccount(account_num, init_bal)
+
+# Function to display menu options
+def display_menu():
+    print("\nMenu:")
+    print("1. Show Personal Details")
+    print("2. Update Personal Details")
+    print("3. Deposit")
+    print("4. Withdraw")
+    print("5. Check Balance")
+    print("6. Transaction History")
+    print("7. Exit")
+
+# Create an instance of Bank
+shivatej = Bank("Shivatej", 20, "12345", 1000)
+
+while True:
+    display_menu()
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        shivatej.show_details()
+    elif choice == '2':
+        new_name = input("Enter new name: ")
+        new_age = int(input("Enter new age: "))
+        shivatej.update_details(new_name, new_age)
+    elif choice == '3':
+        amount = float(input("Enter amount to deposit: "))
+        shivatej.account.deposit(amount)
+    elif choice == '4':
+        amount = float(input("Enter amount to withdraw: "))
+        shivatej.account.withdraw(amount)
+    elif choice == '5':
+        shivatej.account.check_balance()
+    elif choice == '6':
+        shivatej.account.transaction_history()
+    elif choice == '7':
+        print("Exiting...")
+        break
+    else:
+        print("Invalid choice. Please try again.")
